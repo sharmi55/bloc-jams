@@ -1,4 +1,4 @@
-var animatePoints = function() {
+var animatePoints = function () {
 
     var points = document.getElementsByClassName('point');
 
@@ -13,3 +13,7 @@ var animatePoints = function() {
             revealPoint(i);
         }
 };   
+
+ window.onload = function() {
+     alert("The window has loaded!");
+ }
