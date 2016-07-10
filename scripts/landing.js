@@ -14,7 +14,9 @@ var animatePoints = function(points) {
 };   
 
 window.onload = function() {
+    var sellingPoints = document.getElementsByClassName('selling-points') [0];
+    
     window.addEventListener('scroll', function(event) {
-        console.log(event);
+        console.log("Current offset from the top is " + sellingPoints.getBoundingClientRect().top + " pixels");
     });
  }
