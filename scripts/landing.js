@@ -1,5 +1,5 @@
-var pointsArray = document.getElementsByClassName('point');
-    
+var pointsArray = document.getElementsByClassName('point');  
+
 var revealPoint = function(point) {       
     point.style.opacity = 1;
     point.style.transform = "scaleX(1) translateY(0)";
