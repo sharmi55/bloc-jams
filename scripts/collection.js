@@ -15,10 +15,10 @@ var collectionItemTemplate =
    ;
 
 window.onload = function() {
-  var collectionContainer = document.getElementByClassName('album-covers')[0];
+  var collectionContainer = document.getElementsByClassName('album-covers')[0];
   collectionContainer.innerHTML = '';
 
-  for (var i = o; i < 12; i++){
+  for (var i = 0; i < 12; i++){
     collectionContainer.innerHTML += collectionItemTemplate;
   }
 }
