@@ -16,4 +16,5 @@ var collectionItemTemplate =
 
 window.onload = function() {
   var collectionContainer = document.getElementByClassName('album-covers')[0];
+  collectionContainer.innerHTML = '';
 }
