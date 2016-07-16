@@ -68,7 +68,10 @@ var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></
 window.onload = function() {
     setCurrentAlbum(albumMarconi);
     
-    songListContainer.addEventListener('mouseover', function(event) {         console.log(event.target);
+    songListContainer.addEventListener('mouseover', function(event) { 
+        if (event.target.parentElement.className == 'album-view-song-item') {
+            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+        }
     });
 };    
 
