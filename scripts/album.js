@@ -81,7 +81,14 @@ window.onload = function() {
     
     var allAlbums = [albumPicasso, albumMarconi, albumTomato];
     
-    
+    albumImage.addEventListener('click', function {
+        for(var i = 0; i < allAlbums.length; i++){
+            setCurrentAlbum(allAlbums[i]);             
+        });
+        if (i == allAlbums.length) {
+            i = 0;
+        };
+    };
 };
 
         
