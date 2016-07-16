@@ -63,6 +63,8 @@ var setCurrentAlbum = function(album) {
 
 var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
 
+var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
+
 window.onload = function() {
     setCurrentAlbum(albumMarconi);
     
