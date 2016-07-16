@@ -29,6 +29,21 @@ var albumMarconi = {
     ]
 };
 
+var albumTomato = {
+    title: 'Salad',
+    artist: 'Hungry Jack',
+    label: 'EM',
+    year: '2016',
+    albumArtUrl: 'assets/images/album_covers/17.png',
+    songs: [
+        { title: 'Where is the dressing?', duration: '1:01' },
+        { title: 'Chop, chop, chop', duration: '5:01' },
+        { title: 'Tupperware', duration: '3:21'},
+        { title: 'Can you eat me now?', duration: '3:14' },
+        { title: 'Napkin Dust', duration: '2:15'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
         '<tr class="album-view-song-item">'
@@ -40,13 +55,13 @@ var createSongRow = function(songNumber, songName, songLength) {
      return template;
  };
 
-var setCurrentAlbum = function(album) {
-
     var albumTitle = document.getElementsByClassName('album-view-title')[0];
     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
     var albumImage = document.getElementsByClassName('album-cover-art')[0];
     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+var setCurrentAlbum = function(album) {
 
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
@@ -62,7 +77,11 @@ var setCurrentAlbum = function(album) {
 };
 
 window.onload = function() {
-    setCurrentAlbum(albumMarconi);
-};    
+    setCurrentAlbum(albumPicasso);
+    
+    var allAlbums = [albumPicasso, albumMarconi, albumTomato];
+    
+    
+};
 
         
