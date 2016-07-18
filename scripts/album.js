@@ -87,7 +87,7 @@ window.onload = function() {
              });
             
             songRows[i].addEventListener('click', function(event) {
-                
+                clickHandler(event.target);
             });
         }
 };   
@@ -122,6 +122,29 @@ var getSongItem = function(element) {
         default:
             return;
     } 
+};
+
+
+var clickHandler = function(targetElement) {
+    
+    var songItem = getSongItem(targetElement);
+//when there's no currently playing song, do something?
+    if (currentlyPlayingSong === null) {
+        songItem.innerHTML = pauseButtonTemplate;
+        currentlyPlayingSong = songItem.getAttribute('data-song-number');
+    
+// when playing song is clicked again, revert button to play
+    } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+        songItem.innerHTML = playButtonTemplate;
+        currentlyPlayingSong = null;
+ //when clicked song is not active son, set content of new song to pause button   
+    } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
+        var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
+        currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
+        songItem.innerHTML = pauseButtonTemplate;
+        currentlyPlayingSong = songItem.getAttribute('data-song-number');
+        }  
+    
 };
 
         
