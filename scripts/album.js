@@ -83,15 +83,16 @@ window.onload = function() {
         }
 };   
 
-var pauseButtonTemplate = <a class= '<a class="album-song-button"><span class="ion-pause"></span></a>';
 
-    findParentByClassName = function(element,) {
+var findParentByClassName = function(element, targetClass){
+    if (element) {
+         var currentParent = element.parentElement;
+         while (currentParent.className != targetClass && currentParent.className != null) {
+             currentParent = currentParent.parentElement;
+         }
+         return currentParent;
+     }
        
-        var element; //your clicked element
-        while(element.parentNode) {
-            //display, log or do what you want with element
-            return element = element.parentNode;
-        }
-   };
+  };
 
         
