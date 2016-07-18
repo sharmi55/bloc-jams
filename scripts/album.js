@@ -83,8 +83,15 @@ window.onload = function() {
         }
 };   
 
-   findParentByClassName = function() {
+var pauseButtonTemplate = <a class= '<a class="album-song-button"><span class="ion-pause"></span></a>';
+
+    findParentByClassName = function(element,) {
        
-   }
+        var element; //your clicked element
+        while(element.parentNode) {
+            //display, log or do what you want with element
+            return element = element.parentNode;
+        }
+   };
 
         
