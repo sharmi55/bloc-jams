@@ -70,6 +70,8 @@ var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></
 
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 
+var currentlyPlayingSong = null;
+
 window.onload = function() {
     setCurrentAlbum(albumMarconi);
     
@@ -79,9 +81,14 @@ window.onload = function() {
         }
     });
         for (var i = 0; i < songRows.length; i++) {
+            
             songRows[i].addEventListener('mouseleave', function(event) {
              this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
              });
+            
+            songRows[i].addEventListener('click', function(event) {
+                
+            });
         }
 };   
 
