@@ -98,11 +98,20 @@ var findParentByClassName = function(element, targetClass){
   };
 
 var getSongItem = function(element) {
+    
     switch(element.className) {
         case 'album-song-button' || 'ion-play' || 'ion-pause':
             return findParentByClassName(element, 'song-item-number');
-        case :
-            return findParentByClassName();
+       
+        case 'album-view-song-item':
+            return element.querySelector('.song-item-number);
+        
+        case 'song-item-title' || 'song-item-duration':
+            return findParentByClassName(element, 'album-view-song-item');
+        
+        case 'song-item-number':
+            return element;
+        
         default:
             return;
     } 
