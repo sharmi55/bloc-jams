@@ -1,30 +1,24 @@
-var pointsArray = document.getElementsByClassName('point');
-
-var animatePoints = function(points) {
-
-    var revealPoint = function(indexOfPoints) {       
-        points[indexOfPoints].style.opacity = 1;
-        points[indexOfPoints].style.transform = "scaleX(1) translateY(0)";
-        points[indexOfPoints].style.msTransform = "scaleX(1) translateY(0)";
-        points[indexOfPoints].style.WebkitTransform = "scaleX(1) translateY(0)";
-    }
-        for(var i = 0; i < points.length; i++){
-            revealPoint(i);
-        }
+var animatePoints = function() {
+    var revealPoint = function() {       
+        $(this).css({
+            opacity: 1,
+            transfrom: 'scaleX(1) translateY(0)'
+        });
+    };
+    $.each($('.point'), revealPoint);
 };   
 
-window.onload = function() {
-    if (window.innerHeight > 950) {
-         animatePoints(pointsArray);
+$(window).load(function() {
+    if ($(window).height() > 950) {
+         animatePoints();
      }
     
-    var sellingPoints = document.getElementsByClassName('selling-points') [0];
-    var scrollDistance = sellingPoints.getBoundingClientRect().top - window.innerHeight + 200;
+    var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
 
     
-    window.addEventListener('scroll', function(event) {
-         if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) {
-             animatePoints(pointsArray);   
+    $(window).scroll(function(event) {
+         if ($(window).scrollTop() >= scrollDistance) {
+             animatePoints();   
          }
     });
- }
+ });
