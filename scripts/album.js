@@ -48,10 +48,10 @@ var setCurrentAlbum = function(album) {
     var $albumImage = $('.album-cover-art');
     var $albumSongList = $('.album-view-song-list');
 
-    albumTitle.text(album.title);
-    albumArtist.text(album.artist);
-    albumReleaseInfo.text(album.year + ' ' + album.label);
-    albumImage.attr('src', album.albumArtUrl);
+    $albumTitle.text(album.title);
+    $albumArtist.text(album.artist);
+    $albumReleaseInfo.text(album.year + ' ' + album.label);
+    $albumImage.attr('src', album.albumArtUrl);
 
 
     $albumSongList.empty();
