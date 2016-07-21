@@ -31,14 +31,32 @@ var albumMarconi = {
 
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
-        '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
-      + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + songLength + '</td>'
-      + '</tr>'
-      ;
+    '<tr class="album-view-song-item">'
+    + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+    + '  <td class="song-item-title">' + songName + '</td>'
+    + '  <td class="song-item-duration">' + songLength + '</td>'
+    + '</tr>'
+;
+
+var $row = $(template);
+    var onHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+        
+        if(songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(playButtonTemplate);
+        }    
+    };
     
-     var $row = $(template);
+    var offHover = function(event) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+
+        if(songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(songNumber);
+        }     
+    };
+    
     $row.find('.song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
@@ -78,37 +96,15 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 
 var currentlyPlayingSong = null;
 
-window.onload = function() {
+$(document).ready(function() {
     setCurrentAlbum(albumPicasso);
-    
-    songListContainer.addEventListener('mouseover', function(event) { 
-        if (event.target.parentElement.className === 'album-view-song-item') {
-            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
-            
-            var songItem = getSongItem(event.target);
-            
-                if(songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
-                    songItem.innerHTML = playButtonTemplate;
-                }
-        }
-    });
-        for (var i = 0; i < songRows.length; i++) {
-            
-            songRows[i].addEventListener('mouseleave', function(event) {
-                var songItem = getSongItem(event.target);
-                var songItemNumber = songItem.getAttribute('data-song-number');
 
-            // #2
-                if (songItemNumber !== currentlyPlayingSong) {
-                    songItem.innerHTML = songItemNumber;
-                }
-            });
-
-            songRows[i].addEventListener('click', function(event) {
+    for (var i = 0; i < songRows.length; i++) {
+        songRows[i].addEventListener('click', function(event) {
                 clickHandler(event.target);
-            });
-        }
-};   
+        });
+    }
+});   
 
 
 var findParentByClassName = function(element, targetClass){
