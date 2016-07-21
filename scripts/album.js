@@ -57,7 +57,7 @@ var setCurrentAlbum = function(album) {
     $albumSongList.empty();
 
     for (var i = 0; i < album.songs.length; i++) {
-        var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[duration]);
+        var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
         $albumSongList.append($newRow);
     }
 };
@@ -74,7 +74,7 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 window.onload = function() {
-    setCurrentAlbum(albumMarconi);
+    setCurrentAlbum(albumPicasso);
     
     songListContainer.addEventListener('mouseover', function(event) { 
         if (event.target.parentElement.className === 'album-view-song-item') {
