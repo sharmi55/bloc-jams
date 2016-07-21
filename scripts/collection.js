@@ -19,11 +19,12 @@ var buildCollectionTemplte = function() {
         return $(template);
 };
 
-window.onload = function() {
-  var collectionContainer = document.getElementsByClassName('album-covers')[0];
-  collectionContainer.innerHTML = '';
+$(window).load(function() {
+    var $collectionContainer = $('.album-covers');
+    $collectionContainer.empty();
 
-  for (var i = 0; i < 12; i++){
-    collectionContainer.innerHTML += collectionItemTemplate;
+    for (var i = 0; i < 12; i++){
+        var $newThumbnail = buildCollectionTemplte();
+        $collectionContainer.append($newThumbnail);
   }
-}
+});
