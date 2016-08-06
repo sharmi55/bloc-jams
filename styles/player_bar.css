@@ -8,10 +8,12 @@
     z-index: 100;
 }
 
-.play-bar a {
+
+.player-bar a {
     font-size: 1.1rem;
     vertical-align: middle;
 }
+
 
 .player-bar a,
 .player-bar a:hover {
@@ -38,6 +40,10 @@
     padding-right: 1rem;
 }
 
+.player-bar .main-controls .next {
+    margin-left: 16.5%;
+}
+
 .player-bar .main-controls .previous {
     margin-right: 16.5%;
 }
@@ -46,6 +52,7 @@
     margin-right: 15%;
     font-size: 1.6rem;
 }
+
 
 .player-bar .currently-playing {
     width: 50%;
