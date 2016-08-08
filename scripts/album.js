@@ -5,6 +5,12 @@ var setSong = function(songNumber) {
     currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 };
 
+//getSongNumberCell function w number as arg and returns song number elements corresponding to that song number.
+
+var getSongNumberCell = function(number){
+    returns //song number element corresponding to that song number
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
     '<tr class="album-view-song-item">'
