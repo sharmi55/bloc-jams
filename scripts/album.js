@@ -14,6 +14,10 @@ var $nextButton = $('.main-controls .next');
 //setSong function assigns 2 vars new value based on new song number
 
 var setSong = function(songNumber) {
+    if (currentSoundFile) {
+         currentSoundFile.stop();
+     }
+    
     currentlyPlayingSongNumber = parseInt(songNumber);
     currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
     
