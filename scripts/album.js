@@ -54,6 +54,7 @@ var clickHandler = function() {
 		$(this).html(pauseButtonTemplate);
 		setSong(songNumber);
         currentSoundFile.play();
+        currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
         updatePlayerBarSong();
 
     } else if (currentlyPlayingSongNumber === songNumber) {
