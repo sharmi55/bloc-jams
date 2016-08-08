@@ -8,6 +8,7 @@ var currentAlbum = null;
 var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
 var currentSoundFile = null;
+var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
@@ -25,6 +26,13 @@ var setSong = function(songNumber) {
         formats: ['mp3'],
         preload: true
     });
+    setVolume(currentVolume);
+};
+
+var setVolume = function(volume) {
+    if (currentSoundFile) {
+        currentSoundFile.setVolume(volume);
+    }
 };
 
 //getSongNumberCell function w number as arg and returns song number elements corresponding to that song number.
