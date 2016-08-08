@@ -148,6 +148,8 @@ var nextSong = function() {
     
     // Set a new current song
     setSong(currentSongIndex + 1);
+    currentSoundFile.play();
+    updatePlayerBarSong();
 
     // Update the Player Bar information
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
@@ -182,6 +184,8 @@ var previousSong = function() {
     
     // Set a new current song
     setSong(currentSongIndex + 1);
+    currentSoundFile.play();
+    updatePlayerBarSong();
 
     // Update the Player Bar information
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
