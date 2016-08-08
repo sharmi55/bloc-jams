@@ -4,6 +4,10 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var playerBarPlayButton = '<span class="ion-play"></span>';
 var playerBarPauseButton = '<span class="ion-pause"></span>';
 
+//create var that holds following selector
+//add click() event
+var $togglePlayfromPlayerBar = $('.main-controls .play-pause')
+
 var currentAlbum = null;
 var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
@@ -224,6 +228,7 @@ $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    $togglePlayFromPlayerBar.click()
 });   
 
 
