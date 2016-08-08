@@ -53,14 +53,23 @@ var clickHandler = function() {
 		// Switch from Play -> Pause button to indicate new song is playing.
 		$(this).html(pauseButtonTemplate);
 		setSong(songNumber);
+        currentSoundFile.play();
         updatePlayerBarSong();
 
     } else if (currentlyPlayingSongNumber === songNumber) {
 		// Switch from Pause -> Play button to pause currently playing song.
 		$(this).html(playButtonTemplate);
         $('.main-controls .play-pause').html(playerBarPlayButton);
-		currentlyPlayingSongNumber = null;
-        currentSongFromAlbum = null;
+		//delete this => currentlyPlayingSongNumber = null;
+        //delete this => currentSongFromAlbum = null;
+        //replace with conditional statement that checks if currentSounfFile is paused
+            if(currentSoundFile === pause){
+                start playing song ahain and revert icon in song row &
+                & player bar to pause button
+            } else {
+                pause it 
+                & set content of song number cell and player bars pause button back ot play button
+            }
 	}
 };
     
