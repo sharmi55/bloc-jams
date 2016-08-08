@@ -41,6 +41,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 var $row = $(template);
 
 var clickHandler = function() {
+    
     var songNumber = parseInt($(this).attr('data-song-number'));
 
 	if (currentlyPlayingSongNumber !== null) {
@@ -59,19 +60,18 @@ var clickHandler = function() {
 
     } else if (currentlyPlayingSongNumber === songNumber) {
 		// Switch from Pause -> Play button to pause currently playing song.
-		$(this).html(playButtonTemplate);
-        $('.main-controls .play-pause').html(playerBarPlayButton);
-		//delete this => currentlyPlayingSongNumber = null;
-        //delete this => currentSongFromAlbum = null;
+
         //replace with conditional statement that checks if currentSounfFile is paused
-            if(currentSoundFile === pause){
-                start playing song ahain and revert icon in song row &
-                & player bar to pause button
+            if(currentSoundFile.isPaused()){
+                $(this).html(playButtonTemplate);
+                $('.main-controls .play-pause').html(playerBarPlayButton);
+                currentSoundFile.play();
             } else {
-                pause it 
-                & set content of song number cell and player bars pause button back ot play button
+                $(this).html(playButtonTemplate);
+                $('.main-controls .play-pause').html(playerBarPlayButton);
+                currentSoundFile.pause();
             }
-	}
+    }
 };
     
     var onHover = function(event) {
