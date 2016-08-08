@@ -1,3 +1,10 @@
+//setSong function assigns 2 vars new value based on new song number
+
+var setSong = function(songNumber) {
+    //currentlyPlayingSongNumber = newValue.newSongNumber;
+    //currentSongFromAlbum = newValueTwo.newSongNumber;
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
     '<tr class="album-view-song-item">'
