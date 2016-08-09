@@ -224,19 +224,22 @@ var updatePlayerBarSong = function() {
 var $togglePlayerButton = $('.main-controls .play-pause');
 
 var togglePlayFromPlayerBar = function() {
-    if(currentSoundFile.isPaused()) and playButton clicked in player bar) {
-        chageSongNumberCell from play to pause button;
+    if(currentSoundFile.isPaused()) {
+        getSongNumberCell(currentlyPlayingSongNumber);
         
-        change HTML of player bar's play button to pause button';
+        //change HTML of player bar's play button to pause button';
+        $('.main-controls .play-pause').html(playerBarPauseButton);
+
     
-        play the song;
+        currentSoundFile.play();
     
-    } else (song is playing){
-        change songNumber cell from pause to play button;
+    } else {
+        getSongNumberCell(currentlyPlayingSongNumber);
         
-        change HTML of player's bar to play button';
-        
-        pause the song;
+        //change HTML of player's bar to play button';
+        $('.main-controls .play-pause').html(playerBarPlayButton);
+
+        currentSoundFile.pause();
     }
     
 };
