@@ -225,18 +225,20 @@ var $togglePlayerButton = $('.main-controls .play-pause');
 
 var togglePlayFromPlayerBar = function() {
     if(currentSoundFile.isPaused()) {
-        getSongNumberCell(currentlyPlayingSongNumber);
+        var $songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
         
         //change HTML of player bar's play button to pause button';
+        $songNumberCell.html(pauseButtonTemplate);
         $('.main-controls .play-pause').html(playerBarPauseButton);
 
     
         currentSoundFile.play();
     
     } else {
-        getSongNumberCell(currentlyPlayingSongNumber);
+        var $songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
         
         //change HTML of player's bar to play button';
+        $songNumberCell.html(playButtonTemplate);
         $('.main-controls .play-pause').html(playerBarPlayButton);
 
         currentSoundFile.pause();
