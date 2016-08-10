@@ -158,6 +158,23 @@ var setupSeekBars = function() {
 
         updateSeekPercentage($(this), seekBarFillRatio);
     });
+    
+    $seekBars.find('.thumb').mousedown(function(event) {
+        var $seekBar = $(this).parent();
+
+        $(document).bind('mousemove.thumb', function(event){
+        var offsetX = event.pageX - $seekBar.offset().left;
+        var barWidth = $seekBar.width();
+        var seekBarFillRatio = offsetX / barWidth;
+
+        updateSeekPercentage($seekBar, seekBarFillRatio);
+    });
+
+        $(document).bind('mouseup.thumb', function() {
+            $(document).unbind('mousemove.thumb');
+            $(document).unbind('mouseup.thumb');
+        });
+    });
 };
 
 
