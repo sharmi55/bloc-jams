@@ -136,6 +136,18 @@ var setCurrentAlbum = function(album) {
     }
 };
 
+var updateSeekBarWhileSongPlays = function() {
+    if (currentSoundFile) {
+        currentSoundFile.bind('timeupdate', function(event) {
+
+            var seekBarFillRatio = this.getTime() / this.getDuration();
+            var $seekBar = $('.seek-control .seek-bar');
+
+            updateSeekPercentage($seekBar, seekBarFillRatio);
+        });
+    }
+};
+
 var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
     var offsetXPercent = seekBarFillRatio * 100;
 
