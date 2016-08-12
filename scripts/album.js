@@ -222,9 +222,14 @@ var updatePlayerBarSong = function() {
 
 //create var that holds following selector
 var $togglePlayerButton = $('.main-controls .play-pause');
+console.log($togglePlayerButton);
 
 var togglePlayFromPlayerBar = function() {
-    if(currentSoundFile.isPaused()) {
+    
+    if(currentSoundFile === null) {
+        return;
+    } 
+    else if(currentSoundFile.isPaused()) {
         var $songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
         
         //change HTML of player bar's play button to pause button';
