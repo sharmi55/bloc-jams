@@ -278,6 +278,37 @@ var updatePlayerBarSong = function() {
 
 };
 
+//create var that holds following selector
+var $togglePlayerButton = $('.main-controls .play-pause');
+console.log($togglePlayerButton);
+
+var togglePlayFromPlayerBar = function() {
+    
+    if(currentSoundFile === null) {
+        return;
+    } 
+    else if(currentSoundFile.isPaused()) {
+        var $songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+        
+        //change HTML of player bar's play button to pause button';
+        $songNumberCell.html(pauseButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPauseButton);
+
+    
+        currentSoundFile.play();
+    
+    } else {
+        var $songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+        
+        //change HTML of player's bar to play button';
+        $songNumberCell.html(playButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPlayButton);
+
+        currentSoundFile.pause();
+    }
+    
+};
+
 
 
 $(document).ready(function() {
@@ -285,6 +316,7 @@ $(document).ready(function() {
     setupSeekBars();
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    $togglePlayerButton.click(togglePlayFromPlayerBar);
 });   
 
 
