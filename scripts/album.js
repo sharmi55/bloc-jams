@@ -349,7 +349,12 @@ var setTotalTimeInPlayerBar = function(totalTime) {
 };
 
 var filterTimeCode = function(timeInSeconds) {
-    parseFloat() //get seconds in number form;
+    var somethingTime = parseFloat(); //get seconds in number form;
+    var wholeSeconds = Math.floor;
+    var wholeMinutes = Math.floor;
+    
+    
+    return wholeMinutes + ':' + wholeSeconds; 
     
 };
 
