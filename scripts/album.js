@@ -333,6 +333,21 @@ var togglePlayFromPlayerBar = function() {
     
 };
 
+//assignment 34: set up three functions:
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    $('.current-time').text(filterTimeCode(currentTime));
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+    $('.total-time').text(filterTimeCode(totalTime));
+};
+
+var filterTimeCode = function(timeInSeconds) {
+    parseFloat() //get seconds in number form;
+    
+};
+
 
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
