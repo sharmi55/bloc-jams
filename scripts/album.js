@@ -340,14 +340,6 @@ var togglePlayFromPlayerBar = function() {
 
 //assignment 34: set up three functions:
 
-var setCurrentTimeInPlayerBar = function(currentTime) {
-    $('.current-time').text(filterTimeCode(currentTime));
-};
-
-var setTotalTimeInPlayerBar = function(totalTime) {
-    $('.total-time').text(filterTimeCode(totalTime));
-};
-
 var filterTimeCode = function(timeInSeconds) {
     var somethingTime = parseFloat(); //get seconds in number form;
     var wholeSeconds = Math.floor;
@@ -356,6 +348,14 @@ var filterTimeCode = function(timeInSeconds) {
     
     return wholeMinutes + ':' + wholeSeconds; 
     
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    $('.current-time').text(filterTimeCode(currentTime));
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+    $('.total-time').text(filterTimeCode(totalTime));
 };
 
 
