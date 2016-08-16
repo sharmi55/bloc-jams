@@ -13,6 +13,25 @@ var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
 
+//assignment 34: set up three functions:
+
+var filterTimeCode = function(timeInSeconds) {
+    var timeInSeconds = parseFloat(timeInSeconds); //get seconds in number form;
+    var wholeSeconds = ('0' + Math.floor(timeInSeconds % 60));
+    var wholeMinutes = Math.floor(timeInSeconds / 60);
+    
+    
+    return wholeMinutes + ':' + wholeSeconds; 
+    
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    $('.current-time').text(filterTimeCode(currentTime));
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+    $('.total-time').text(filterTimeCode(totalTime));
+};
 
 //setSong function assigns 2 vars new value based on new song number
 
@@ -338,25 +357,6 @@ var togglePlayFromPlayerBar = function() {
     
 };
 
-//assignment 34: set up three functions:
-
-var filterTimeCode = function(timeInSeconds) {
-    var somethingTime = parseFloat(); //get seconds in number form;
-    var wholeSeconds = Math.floor;
-    var wholeMinutes = Math.floor;
-    
-    
-    return wholeMinutes + ':' + wholeSeconds; 
-    
-};
-
-var setCurrentTimeInPlayerBar = function(currentTime) {
-    $('.current-time').text(filterTimeCode(currentTime));
-};
-
-var setTotalTimeInPlayerBar = function(totalTime) {
-    $('.total-time').text(filterTimeCode(totalTime));
-};
 
 
 $(document).ready(function() {
