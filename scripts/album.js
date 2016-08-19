@@ -17,16 +17,27 @@ var $nextButton = $('.main-controls .next');
 
 var filterTimeCode = function(timeInSeconds) {
     var timeInSeconds = parseFloat(timeInSeconds); //get seconds in number form;
-    var wholeSeconds = ('0' + Math.floor(timeInSeconds % 60));
+   //console.log(timeInSeconds); 
+    
+        //add 0 at front only if number is smaller than 10.
     var wholeMinutes = Math.floor(timeInSeconds / 60);
+//        if(timeInSeconds < 60) {
+      
+    var remainingSeconds = Math.floor(timeInSeconds % 60);
     
+    if(remainingSeconds < 10) {
+        var time = wholeMinutes + ":" + ('0' + remainingSeconds);
+    } else {
+        var time = wholeMinutes + ':' + remainingSeconds; 
+    }
+    console.log(time);
+    return time;
     
-    return wholeMinutes + ':' + wholeSeconds; 
-    
+            
 };
 
 var setCurrentTimeInPlayerBar = function(currentTime) {
-    $('.current-time').text(filterTimeCode(currentTime));
+    $('.current-time').text(currentTime);
 };
 
 var setTotalTimeInPlayerBar = function(totalTime) {
@@ -322,7 +333,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
 
-    setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.length));
+    setTotalTimeInPlayerBar(currentSongFromAlbum.length);
 
 };
 
