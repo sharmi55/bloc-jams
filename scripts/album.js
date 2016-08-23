@@ -13,6 +13,36 @@ var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
 
+//assignment 34: set up three functions:
+
+var filterTimeCode = function(timeInSeconds) {
+    var timeInSeconds = parseFloat(timeInSeconds); //get seconds in number form;
+    
+        //add 0 at front only if number is smaller than 10.
+    var wholeMinutes = Math.floor(timeInSeconds / 60);
+//        if(timeInSeconds < 60) {
+      
+    var remainingSeconds = Math.floor(timeInSeconds % 60);
+    
+    if(remainingSeconds < 10) {
+        var time = wholeMinutes + ":" + ('0' + remainingSeconds);
+    } else {
+        var time = wholeMinutes + ':' + remainingSeconds; 
+    }
+    return time;
+    
+            
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    $('.current-time').text(currentTime);
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+    $('.total-time').text(totalTime);
+    console.log(totalTime);
+    
+};
 
 //setSong function assigns 2 vars new value based on new song number
 
@@ -54,9 +84,10 @@ var createSongRow = function(songNumber, songName, songLength) {
     '<tr class="album-view-song-item">'
     + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
     + '  <td class="song-item-title">' + songName + '</td>'
-    + '  <td class="song-item-duration">' + songLength + '</td>'
+    + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
     + '</tr>'
 ;
+    
 
 var $row = $(template);
 
@@ -160,6 +191,11 @@ var updateSeekBarWhileSongPlays = function() {
             var $seekBar = $('.seek-control .seek-bar');
 
             updateSeekPercentage($seekBar, seekBarFillRatio);
+            
+            setCurrentTimeInPlayerBar(filterTimeCode(this.getTime()));
+            
+    setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.duration - this.getTime()));
+
         });
     }
 };
@@ -300,6 +336,9 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
 
+    //setTotalTimeInPlayerBar(currentSongFromAlbum.duration);
+    
+    console.log(currentSongFromAlbum.duration);
 };
 
 //create var that holds following selector
@@ -332,6 +371,7 @@ var togglePlayFromPlayerBar = function() {
     }
     
 };
+
 
 
 $(document).ready(function() {
